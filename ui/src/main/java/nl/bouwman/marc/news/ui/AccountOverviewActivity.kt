@@ -59,7 +59,10 @@ class AccountOverviewActivity : AppCompatActivity() {
         }
 
         viewModel.isLoggedIn.observe(this) {
-            if(!it) finish()
+            if(!it) {
+                startActivity(Intent(this, AuthenticationActivity::class.java))
+                finish()
+            }
         }
     }
 

@@ -28,6 +28,9 @@ class ArticleOverviewViewModel(
     val isLoading: LiveData<Boolean>
         get() = mutableIsLoading
 
+    var wasLoggedInOnLastSync: Boolean? = null
+        private set
+
     init {
         loadArticles()
     }
@@ -48,6 +51,7 @@ class ArticleOverviewViewModel(
 
         viewModelScope.launch {
             val token = accountManager.fetchToken()
+            wasLoggedInOnLastSync = isLoggedIn.value
             val articleBatch = api.getArticles(id, token)
 
             if (articleBatch != null) {

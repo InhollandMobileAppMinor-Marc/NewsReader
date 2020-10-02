@@ -44,6 +44,11 @@ class ArticleOverviewActivity : AppCompatActivity() {
         viewModel.articles.observe(this) {
             adapter.notifyDataSetChanged()
         }
+
+        viewModel.isLoggedIn.observe(this) {
+            if (viewModel.wasLoggedInOnLastSync != it)
+                viewModel.reloadArticles()
+        }
     }
 
     override fun onDestroy() {
