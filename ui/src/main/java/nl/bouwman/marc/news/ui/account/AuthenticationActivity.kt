@@ -2,6 +2,8 @@ package nl.bouwman.marc.news.ui.account
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import nl.bouwman.marc.news.ui.R
@@ -23,6 +25,8 @@ class AuthenticationActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.content.register.setOnClickListener {
+            hideKeyboard()
+
             viewModel.createAccount(
                 binding.content.usernameInputField.text.toString(),
                 binding.content.passwordInputField.text.toString()
@@ -30,6 +34,8 @@ class AuthenticationActivity : AppCompatActivity() {
         }
 
         binding.content.login.setOnClickListener {
+            hideKeyboard()
+
             viewModel.login(
                 binding.content.usernameInputField.text.toString(),
                 binding.content.passwordInputField.text.toString()
@@ -58,5 +64,13 @@ class AuthenticationActivity : AppCompatActivity() {
                 Snackbar.make(binding.content.register, msg, Snackbar.LENGTH_LONG).show()
             }
         }
+    }
+
+    private fun hideKeyboard() {
+        currentFocus?.clearFocus()
+
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        val view = currentFocus ?: View(this)
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
