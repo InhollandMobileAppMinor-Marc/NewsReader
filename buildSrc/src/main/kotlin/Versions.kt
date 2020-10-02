@@ -25,9 +25,5 @@ object Versions {
             const val coroutines = "1.3.9"
             const val serialization = "1.0.0-RC"
         }
-
-        object AndroidX {
-            const val navigation = "2.3.0"
-        }
     }
 }

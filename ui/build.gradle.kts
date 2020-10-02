@@ -3,7 +3,6 @@
 plugins {
     id("com.android.library")
     kotlin("android")
-    // id("androidx.navigation.safeargs")
 }
 
 android {
@@ -75,10 +74,6 @@ dependencies {
     // Security
     implementation("androidx.security:security-crypto:1.0.0-rc03")
 
-    // Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.Libs.AndroidX.navigation}")
-    implementation("androidx.navigation:navigation-ui-ktx:${Versions.Libs.AndroidX.navigation}")
-
     // Views
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.1")
@@ -89,6 +84,7 @@ dependencies {
     implementation("androidx.browser:browser:1.2.0")
     implementation("androidx.annotation:annotation:1.1.0")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
 
     // Tests
     testImplementation("junit:junit:${Versions.Libs.junit}")
