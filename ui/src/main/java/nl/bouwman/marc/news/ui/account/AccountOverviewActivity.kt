@@ -1,14 +1,10 @@
-package nl.bouwman.marc.news.ui
+package nl.bouwman.marc.news.ui.account
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.browser.customtabs.CustomTabsIntent
-import androidx.core.net.toUri
+import nl.bouwman.marc.news.ui.ArticleAdapter
 import nl.bouwman.marc.news.ui.databinding.ActivityAccountOverviewBinding
-import nl.bouwman.marc.news.ui.databinding.ActivityArticleOverviewBinding
 import nl.bouwman.marc.news.ui.utils.defaultEncryptedPreferences
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

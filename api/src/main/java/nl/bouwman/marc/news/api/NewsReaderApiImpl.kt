@@ -1,7 +1,8 @@
 package nl.bouwman.marc.news.api
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 import nl.bouwman.marc.news.api.models.UserCredentials
 import nl.bouwman.marc.news.domain.models.Article

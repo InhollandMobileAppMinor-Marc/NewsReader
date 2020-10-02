@@ -8,8 +8,8 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import nl.bouwman.marc.news.ui.databinding.ArticleListItemBinding
 import nl.bouwman.marc.news.domain.models.Article
+import nl.bouwman.marc.news.ui.databinding.ArticleListItemBinding
 
 class ArticleAdapter(
     private val articles: LiveData<Set<Article>>,

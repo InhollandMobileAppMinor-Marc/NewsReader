@@ -30,13 +30,13 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".ui.AccountOverviewActivity"
+            android:name=".ui.account.AccountOverviewActivity"
             android:label="@string/article"
             android:parentActivityName=".ui.ArticleOverviewActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".ui.AuthenticationActivity"
+            android:name=".ui.account.AuthenticationActivity"
             android:label="@string/article"
             android:parentActivityName=".ui.ArticleOverviewActivity"
             android:theme="@style/AppTheme.NoActionBar"

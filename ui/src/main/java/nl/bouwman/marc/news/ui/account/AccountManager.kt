@@ -1,4 +1,4 @@
-package nl.bouwman.marc.news.ui
+package nl.bouwman.marc.news.ui.account
 
 import androidx.lifecycle.LiveData
 import nl.bouwman.marc.news.domain.models.Result

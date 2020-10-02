@@ -10,13 +10,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.browser.customtabs.*
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import coil.load
 import com.google.android.material.snackbar.Snackbar
-import nl.bouwman.marc.news.ui.databinding.ActivityArticleDetailsBinding
 import nl.bouwman.marc.news.domain.models.Article
+import nl.bouwman.marc.news.ui.databinding.ActivityArticleDetailsBinding
 import nl.bouwman.marc.news.ui.utils.CustomTabsHelper
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

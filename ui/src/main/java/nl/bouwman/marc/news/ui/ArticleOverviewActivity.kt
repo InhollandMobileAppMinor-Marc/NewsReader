@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.browser.customtabs.CustomTabsIntent
-import androidx.core.net.toUri
+import nl.bouwman.marc.news.ui.account.AccountOverviewActivity
+import nl.bouwman.marc.news.ui.account.AuthenticationActivity
 import nl.bouwman.marc.news.ui.databinding.ActivityArticleOverviewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

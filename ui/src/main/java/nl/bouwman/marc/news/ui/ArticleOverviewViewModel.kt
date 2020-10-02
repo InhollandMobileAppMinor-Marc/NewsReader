@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import nl.bouwman.marc.news.domain.models.Article
 import nl.bouwman.marc.news.domain.services.NewsReaderApi
+import nl.bouwman.marc.news.ui.account.AccountManager
 
 class ArticleOverviewViewModel(
     private val api: NewsReaderApi,
