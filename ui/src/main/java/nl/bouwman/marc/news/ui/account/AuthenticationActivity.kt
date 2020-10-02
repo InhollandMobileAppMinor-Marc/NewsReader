@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import nl.bouwman.marc.news.ui.R
 import nl.bouwman.marc.news.ui.databinding.ActivityAuthenticationBinding
+import nl.bouwman.marc.news.ui.utils.fluidresize.FluidContentResizer
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AuthenticationActivity : AppCompatActivity() {
@@ -23,6 +24,8 @@ class AuthenticationActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        FluidContentResizer.listen(this)
 
         binding.content.register.setOnClickListener {
             hideKeyboard()
