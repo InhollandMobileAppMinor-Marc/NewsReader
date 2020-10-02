@@ -7,14 +7,14 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(Versions.SDK.Android.compile)
 
     defaultConfig {
-        minSdkVersion(23)
-        targetSdkVersion(30)
+        minSdkVersion(Versions.SDK.Android.min)
+        targetSdkVersion(Versions.SDK.Android.target)
 
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = Versions.App.code
+        versionName = Versions.App.name
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -43,12 +43,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = Versions.SDK.jvm
+        targetCompatibility = Versions.SDK.jvm
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = Versions.SDK.jvm.toString()
     }
 }
 
@@ -60,7 +60,7 @@ dependencies {
 
     // Kotlin
     implementation(kotlin("stdlib-jdk8"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Libs.KotlinX.coroutines}")
 
     // Network
     implementation("io.coil-kt:coil:1.0.0-rc3")
@@ -69,15 +69,15 @@ dependencies {
     implementation("com.google.android.material:material:1.2.1")
 
     // DI
-    implementation("org.koin:koin-android:2.0.1")
-    implementation("org.koin:koin-androidx-viewmodel:2.0.1")
+    implementation("org.koin:koin-android:${Versions.Libs.koin}")
+    implementation("org.koin:koin-androidx-viewmodel:${Versions.Libs.koin}")
 
     // Security
     implementation("androidx.security:security-crypto:1.0.0-rc03")
 
     // Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.3.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.3.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.Libs.AndroidX.navigation}")
+    implementation("androidx.navigation:navigation-ui-ktx:${Versions.Libs.AndroidX.navigation}")
 
     // Views
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
@@ -91,7 +91,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
 
     // Tests
-    testImplementation("junit:junit:4.13")
+    testImplementation("junit:junit:${Versions.Libs.junit}")
 
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")

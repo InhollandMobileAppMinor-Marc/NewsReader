@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(Versions.SDK.Android.compile)
 
     packagingOptions {
         exclude("kotlin/**")
@@ -20,11 +20,11 @@ android {
     defaultConfig {
         applicationId = "nl.bouwman.marc.news"
 
-        minSdkVersion(23)
-        targetSdkVersion(30)
+        minSdkVersion(Versions.SDK.Android.min)
+        targetSdkVersion(Versions.SDK.Android.target)
 
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = Versions.App.code
+        versionName = Versions.App.name
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -48,12 +48,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = Versions.SDK.jvm
+        targetCompatibility = Versions.SDK.jvm
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = Versions.SDK.jvm.toString()
     }
 }
 
@@ -66,13 +66,13 @@ dependencies {
 
     implementation(kotlin("stdlib-jdk8"))
 
-    implementation("org.koin:koin-android:2.0.1")
-    implementation("org.koin:koin-androidx-viewmodel:2.0.1")
+    implementation("org.koin:koin-android:${Versions.Libs.koin}")
+    implementation("org.koin:koin-androidx-viewmodel:${Versions.Libs.koin}")
 
     implementation("androidx.core:core-ktx:1.3.1")
     implementation("androidx.appcompat:appcompat:1.2.0")
 
-    testImplementation("junit:junit:4.13")
+    testImplementation("junit:junit:${Versions.Libs.junit}")
 
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
