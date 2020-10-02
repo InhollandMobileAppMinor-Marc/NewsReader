@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import nl.bouwman.marc.news.ui.R
 import nl.bouwman.marc.news.ui.databinding.ActivityAuthenticationBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -48,7 +49,14 @@ class AuthenticationActivity : AppCompatActivity() {
         }
 
         viewModel.errorMessage.observe(this) {
-            if(it != null) Snackbar.make(binding.content.register, it, Snackbar.LENGTH_LONG).show()
+            if (it != null) {
+                val msg =
+                    if(it == AuthenticationViewModel.LOGIN_ERROR_MESSAGE)
+                        getString(R.string.incorrect_credentials)
+                    else it
+
+                Snackbar.make(binding.content.register, msg, Snackbar.LENGTH_LONG).show()
+            }
         }
     }
 }

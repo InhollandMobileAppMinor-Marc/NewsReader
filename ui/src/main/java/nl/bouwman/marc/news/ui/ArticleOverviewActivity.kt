@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import nl.bouwman.marc.news.ui.account.AccountOverviewActivity
 import nl.bouwman.marc.news.ui.account.AuthenticationActivity
 import nl.bouwman.marc.news.ui.databinding.ActivityArticleOverviewBinding
@@ -48,6 +49,14 @@ class ArticleOverviewActivity : AppCompatActivity() {
         viewModel.isLoggedIn.observe(this) {
             if (viewModel.wasLoggedInOnLastSync != it)
                 viewModel.reloadArticles()
+        }
+
+        viewModel.isOnline.observe(this) {
+            if(!it) Snackbar.make(
+                binding.content.recyclerView,
+                getString(R.string.no_internet),
+                Snackbar.LENGTH_LONG
+            ).show()
         }
     }
 

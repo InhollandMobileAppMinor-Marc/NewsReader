@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import nl.bouwman.marc.news.domain.models.Article
 import nl.bouwman.marc.news.domain.services.NewsReaderApi
-import nl.bouwman.marc.news.ui.account.AccountManager
+import nl.bouwman.marc.news.domain.services.AccountManager
 
 class ArticleDetailsViewModel(
     private val api: NewsReaderApi,

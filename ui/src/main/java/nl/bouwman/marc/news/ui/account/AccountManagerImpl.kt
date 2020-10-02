@@ -3,6 +3,7 @@ package nl.bouwman.marc.news.ui.account
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import nl.bouwman.marc.news.domain.models.Result
+import nl.bouwman.marc.news.domain.services.AccountManager
 import nl.bouwman.marc.news.domain.services.NewsReaderApi
 import nl.bouwman.marc.news.ui.utils.defaultEncryptedPreferences
 import nl.bouwman.marc.news.ui.utils.edit

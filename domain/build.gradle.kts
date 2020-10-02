@@ -53,6 +53,7 @@ dependencies {
 
     implementation(kotlin("stdlib-jdk8"))
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.Libs.KotlinX.serialization}")
+    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
 
     testImplementation("junit:junit:${Versions.Libs.junit}")
 

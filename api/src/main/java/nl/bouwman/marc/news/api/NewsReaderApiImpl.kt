@@ -1,5 +1,6 @@
 package nl.bouwman.marc.news.api
 
+import androidx.lifecycle.MutableLiveData
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -31,12 +32,17 @@ class NewsReaderApiImpl : NewsReaderApi {
             .create(NewsReaderApiService::class.java)
     }
 
+    override val isOnline = MutableLiveData(true)
+
     private suspend inline fun <T> api(crossinline block: suspend () -> T): T? {
         return withContext(Dispatchers.IO) {
             try {
-                block()
+                val response = block()
+                isOnline.postValue(true)
+                response
             } catch (error: UnknownHostException) {
                 // Network is offline
+                isOnline.postValue(false)
                 null
             }
         }

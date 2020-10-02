@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import nl.bouwman.marc.news.domain.models.Article
 import nl.bouwman.marc.news.domain.services.NewsReaderApi
-import nl.bouwman.marc.news.ui.account.AccountManager
+import nl.bouwman.marc.news.domain.services.AccountManager
 
 class ArticleOverviewViewModel(
     private val api: NewsReaderApi,
@@ -17,6 +17,9 @@ class ArticleOverviewViewModel(
 
     val isLoggedIn
         get() = accountManager.isLoggedIn
+
+    val isOnline
+        get() = api.isOnline
 
     private val mutableArticles = MutableLiveData(emptySet<Article>())
 

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import nl.bouwman.marc.news.domain.models.Article
+import nl.bouwman.marc.news.domain.services.AccountManager
 import nl.bouwman.marc.news.domain.services.NewsReaderApi
 
 class AccountOverviewViewModel(

@@ -14,4 +14,6 @@
     <string name="share">Share</string>
     <string name="your_account">Your account</string>
     <string name="log_out">Log out</string>
+    <string name="incorrect_credentials">Incorrect credentials</string>
+    <string name="no_internet">No internet connection available</string>
 </resources>

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import nl.bouwman.marc.news.domain.models.Result
+import nl.bouwman.marc.news.domain.services.AccountManager
 
 class AuthenticationViewModel(
     private val accountManager: AccountManager
@@ -38,9 +39,14 @@ class AuthenticationViewModel(
         mutableIsLoading.postValue(true)
 
         viewModelScope.launch {
-            accountManager.login(username, password)
+            val result = accountManager.login(username, password)
+            mutableErrorMessage.postValue(if(!result) LOGIN_ERROR_MESSAGE else null)
 
             mutableIsLoading.postValue(false)
         }
+    }
+
+    companion object {
+        const val LOGIN_ERROR_MESSAGE = "LOGIN_ERROR_MESSAGE"
     }
 }

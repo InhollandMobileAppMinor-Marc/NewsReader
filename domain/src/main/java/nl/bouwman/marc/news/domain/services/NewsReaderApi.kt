@@ -1,10 +1,13 @@
 package nl.bouwman.marc.news.domain.services
 
+import androidx.lifecycle.LiveData
 import nl.bouwman.marc.news.domain.models.Article
 import nl.bouwman.marc.news.domain.models.ArticleBatch
 import nl.bouwman.marc.news.domain.models.Result
 
 interface NewsReaderApi {
+    val isOnline: LiveData<Boolean>
+
     suspend fun getArticles(id: Int? = null, token: String? = null): ArticleBatch?
 
     suspend fun getLikedArticles(token: String): ArticleBatch?

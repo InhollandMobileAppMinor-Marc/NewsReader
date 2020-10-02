@@ -14,4 +14,6 @@
     <string name="share">Delen</string>
     <string name="your_account">Uw account</string>
     <string name="log_out">Log uit</string>
+    <string name="incorrect_credentials">Inloggegevens incorrect</string>
+    <string name="no_internet">Geen internetverbinding beschikbaar</string>
 </resources>
