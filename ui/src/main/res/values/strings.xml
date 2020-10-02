@@ -16,4 +16,5 @@
     <string name="log_out">Log out</string>
     <string name="incorrect_credentials">Incorrect credentials</string>
     <string name="no_internet">No internet connection available</string>
+    <string name="ok">Ok</string>
 </resources>

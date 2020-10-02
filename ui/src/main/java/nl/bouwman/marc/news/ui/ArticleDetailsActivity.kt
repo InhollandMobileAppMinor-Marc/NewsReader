@@ -14,6 +14,7 @@ import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import coil.load
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import nl.bouwman.marc.news.domain.models.Article
 import nl.bouwman.marc.news.ui.databinding.ActivityArticleDetailsBinding
@@ -59,12 +60,12 @@ class ArticleDetailsActivity : AppCompatActivity() {
         if (article != null) {
             viewModel.article.postValue(article)
         } else if (viewModel.article.value != null) {
-            // TODO: Make AlertDialog
-            Snackbar.make(
-                binding.content.summary,
-                getString(R.string.article_loading_error),
-                Snackbar.LENGTH_LONG
-            ).show()
+            MaterialAlertDialogBuilder(this)
+                .setMessage(R.string.article_loading_error)
+                .setPositiveButton(R.string.ok) { _, _ ->
+                    finish()
+                }
+                .show()
         }
 
         customTabsSession.observe(this) {
