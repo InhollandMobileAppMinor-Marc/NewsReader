@@ -1,0 +1,28 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize8dp" parent="">
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="Widget.App.ShapeableImageView" parent="Widget.MaterialComponents.ShapeableImageView">
+        <item name="shapeAppearance">?attr/shapeAppearanceSmallComponent</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.App.CornerSize8dp</item>
+    </style>
+
+</resources>

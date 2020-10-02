@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="articles">Artikelen</string>
+    <string name="article">Artikel</string>
+    <string name="article_loading_error">Kan artikel niet laden</string>
+    <string name="open_in_browser">Open in browser</string>
+    <string name="source_text">Bron: %1$s</string>
+    <string name="login">Login</string>
+    <string name="account_info">Informatie over account</string>
+    <string name="username">Gebruikersnaam</string>
+    <string name="password">Wachtwoord</string>
+    <string name="log_in">Log in</string>
+    <string name="register">Registreren</string>
+    <string name="share">Delen</string>
+    <string name="your_account">Uw account</string>
+    <string name="log_out">Log uit</string>
+</resources>

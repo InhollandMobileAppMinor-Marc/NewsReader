@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="articles">Articles</string>
+    <string name="article">Article</string>
+    <string name="article_loading_error">Failed to load article</string>
+    <string name="open_in_browser">Open in browser</string>
+    <string name="source_text">Source: %1$s</string>
+    <string name="login">Login</string>
+    <string name="account_info">Account information</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="register">Register</string>
+    <string name="share">Share</string>
+    <string name="your_account">Your account</string>
+    <string name="log_out">Log out</string>
+</resources>
