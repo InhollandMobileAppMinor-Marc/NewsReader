@@ -34,10 +34,10 @@ class NewsReaderApiImpl : NewsReaderApi {
 
     override val isOnline = MutableLiveData(true)
 
-    private suspend inline fun <T> api(crossinline block: suspend () -> T): T? {
+    private suspend inline fun <T> api(crossinline block: suspend NewsReaderApiService.() -> T): T? {
         return withContext(Dispatchers.IO) {
             try {
-                val response = block()
+                val response = block(api)
                 isOnline.postValue(true)
                 response
             } catch (error: UnknownHostException) {
@@ -50,15 +50,15 @@ class NewsReaderApiImpl : NewsReaderApi {
 
     override suspend fun getArticles(id: Int?, token: String?): ArticleBatch? {
         val response = api {
-            if (id == null) api.getArticles(token, count = 20)
-            else api.getArticlesById(id, token, count = 20)
+            if (id == null) getArticles(token, count = 20)
+            else getArticlesById(id, token, count = 20)
         }
 
         return if (response?.isSuccessful == true) response.body() else null
     }
 
     override suspend fun getLikedArticles(token: String): ArticleBatch? {
-        val response = api { api.getLikedArticles(token) }
+        val response = api { getLikedArticles(token) }
 
         return if (response?.isSuccessful == true) response.body() else null
     }
@@ -66,7 +66,7 @@ class NewsReaderApiImpl : NewsReaderApi {
     override suspend fun registerAccount(username: String, password: String): Result<String, String?> {
         val user = UserCredentials(username, password)
 
-        val response = api { api.registerNewUser(user) }
+        val response = api { registerNewUser(user) }
 
         return if (response?.isSuccessful == true) {
             val body = response.body()
@@ -81,22 +81,22 @@ class NewsReaderApiImpl : NewsReaderApi {
     override suspend fun login(username: String, password: String): String? {
         val user = UserCredentials(username, password)
 
-        val response = api { api.loginUser(user) }
+        val response = api { loginUser(user) }
 
         return if (response?.isSuccessful == true) response.body()?.authToken else null
     }
 
     override suspend fun isTokenValid(token: String): Boolean
-            = api { api.getArticles(token, count = 1) }?.isSuccessful == true
+            = api { getArticles(token, count = 1) }?.isSuccessful == true
 
     override suspend fun likeArticle(article: Article, token: String): Article {
-        val response = api { api.likeArticle(article.id, token) }
+        val response = api { likeArticle(article.id, token) }
 
         return if (response?.isSuccessful == true) article.copy(isLiked = true) else article
     }
 
     override suspend fun dislikeArticle(article: Article, token: String): Article {
-        val response = api { api.dislikeArticle(article.id, token) }
+        val response = api { dislikeArticle(article.id, token) }
 
         return if (response?.isSuccessful == true) article.copy(isLiked = false) else article
     }

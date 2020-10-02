@@ -61,10 +61,7 @@ class ArticleOverviewViewModel(
                 val articles = if(reload) emptySet() else articles.value ?: emptySet()
                 mutableArticles.postValue(articles + articleBatch.articles)
                 nextId = articleBatch.nextId
-            } else {
-                // TODO: show error message
-                mutableArticles.postValue(emptySet())
-            }
+            } else mutableArticles.postValue(emptySet())
 
             mutableIsLoading.postValue(false)
         }
