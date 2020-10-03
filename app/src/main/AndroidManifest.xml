@@ -13,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.ArticleOverviewActivity"
+            android:name=".ui.SplashScreenActivity"
             android:label="@string/app_name"
             android:resizeableActivity="true"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,23 +25,29 @@
         </activity>
 
         <activity
-            android:name=".ui.ArticleDetailsActivity"
+            android:name=".ui.articles.ArticleOverviewActivity"
+            android:label="@string/articles"
+            android:resizeableActivity="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ui.articles.ArticleDetailsActivity"
             android:label="@string/article"
-            android:parentActivityName=".ui.ArticleOverviewActivity"
+            android:parentActivityName=".ui.articles.ArticleOverviewActivity"
             android:resizeableActivity="true"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".ui.account.AccountOverviewActivity"
-            android:label="@string/article"
-            android:parentActivityName=".ui.ArticleOverviewActivity"
+            android:label="@string/your_account"
+            android:parentActivityName=".ui.articles.ArticleOverviewActivity"
             android:resizeableActivity="true"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".ui.account.AuthenticationActivity"
-            android:label="@string/article"
-            android:parentActivityName=".ui.ArticleOverviewActivity"
+            android:label="@string/login"
+            android:parentActivityName=".ui.articles.ArticleOverviewActivity"
             android:resizeableActivity="true"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />

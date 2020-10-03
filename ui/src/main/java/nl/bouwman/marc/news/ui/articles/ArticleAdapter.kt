@@ -1,4 +1,4 @@
-package nl.bouwman.marc.news.ui
+package nl.bouwman.marc.news.ui.articles
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import nl.bouwman.marc.news.domain.models.Article
+import nl.bouwman.marc.news.ui.R
 import nl.bouwman.marc.news.ui.databinding.ArticleListItemBinding
 
 class ArticleAdapter(

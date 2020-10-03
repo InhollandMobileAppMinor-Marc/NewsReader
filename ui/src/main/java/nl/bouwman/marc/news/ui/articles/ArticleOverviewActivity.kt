@@ -1,4 +1,4 @@
-package nl.bouwman.marc.news.ui
+package nl.bouwman.marc.news.ui.articles
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import nl.bouwman.marc.news.ui.R
 import nl.bouwman.marc.news.ui.account.AccountOverviewActivity
 import nl.bouwman.marc.news.ui.account.AuthenticationActivity
 import nl.bouwman.marc.news.ui.databinding.ActivityArticleOverviewBinding

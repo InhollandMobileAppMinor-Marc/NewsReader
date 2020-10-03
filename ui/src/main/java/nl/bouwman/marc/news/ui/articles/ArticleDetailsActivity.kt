@@ -1,4 +1,4 @@
-package nl.bouwman.marc.news.ui
+package nl.bouwman.marc.news.ui.articles
 
 import android.content.Intent
 import android.os.Build.VERSION
@@ -15,8 +15,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import coil.load
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
 import nl.bouwman.marc.news.domain.models.Article
+import nl.bouwman.marc.news.ui.R
 import nl.bouwman.marc.news.ui.databinding.ActivityArticleDetailsBinding
 import nl.bouwman.marc.news.ui.utils.CustomTabsHelper
 import org.koin.androidx.viewmodel.ext.android.viewModel

@@ -3,7 +3,7 @@ package nl.bouwman.marc.news.ui.account
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import nl.bouwman.marc.news.ui.ArticleAdapter
+import nl.bouwman.marc.news.ui.articles.ArticleAdapter
 import nl.bouwman.marc.news.ui.R
 import nl.bouwman.marc.news.ui.databinding.ActivityAccountOverviewBinding
 import nl.bouwman.marc.news.ui.utils.defaultEncryptedPreferences

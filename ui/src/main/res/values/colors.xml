@@ -15,4 +15,5 @@
     <color name="colorSecondaryVariant">#018786</color>
     <color name="colorSurface">#FFFFFF</color>
     <color name="actionBarImageForeground">#30000000</color>
+    <color name="colorSplashScreen">#6200EE</color>
 </resources>
