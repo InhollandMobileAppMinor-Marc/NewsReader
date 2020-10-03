@@ -10,6 +10,8 @@ interface NewsReaderApi {
 
     suspend fun getArticles(id: Int? = null, token: String? = null): ArticleBatch?
 
+    suspend fun getArticle(id: Int, token: String? = null): Article?
+
     suspend fun getLikedArticles(token: String): ArticleBatch?
 
     suspend fun registerAccount(username: String, password: String): Result<String, String?>

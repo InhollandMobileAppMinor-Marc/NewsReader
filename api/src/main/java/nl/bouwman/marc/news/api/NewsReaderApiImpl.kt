@@ -61,6 +61,12 @@ class NewsReaderApiImpl : NewsReaderApi {
         return if (response?.isSuccessful == true) response.body() else null
     }
 
+    override suspend fun getArticle(id: Int, token: String?): Article? {
+        val response = api { getArticlesById(id, token, count = 1) }
+
+        return if (response?.isSuccessful == true) response.body()?.articles?.firstOrNull() else null
+    }
+
     override suspend fun getLikedArticles(token: String): ArticleBatch? {
         val response = api { getLikedArticles(token) }
 
