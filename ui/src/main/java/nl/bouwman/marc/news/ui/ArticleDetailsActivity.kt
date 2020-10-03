@@ -90,11 +90,15 @@ class ArticleDetailsActivity : AppCompatActivity() {
 
         binding.content.time.also {
             it.visibility = if(article.humanReadableTimeAndDate == null) View.INVISIBLE else View.VISIBLE
-            if(article.humanReadableTimeAndDate != null)
-                it.text = article.humanReadableTimeAndDate
+            it.text = article.humanReadableTimeAndDate
         }
 
         binding.content.source.text = getString(R.string.source_text, article.url)
+
+        binding.content.related.also {
+            it.visibility = if(article.related.isEmpty()) View.GONE else View.VISIBLE
+            it.text = getString(R.string.related, article.related.joinToString("\n") { "• $it" })
+        }
 
         val likeDrawable = if(article.isLiked) R.drawable.ic_favorite else R.drawable.ic_favorite_border
         binding.fab.setImageDrawable(ContextCompat.getDrawable(this, likeDrawable))
@@ -107,32 +111,36 @@ class ArticleDetailsActivity : AppCompatActivity() {
         return true
     }
 
+    private fun openInBrowser(url: String? = null) {
+        val articleUrl = url ?: viewModel.article.value?.url ?: return
+
+        val customTabsBuilder = CustomTabsIntent.Builder()
+            .setToolbarColor(getColor(R.color.colorPrimary))
+            .setSecondaryToolbarColor(getColor(R.color.colorSecondary))
+            .setColorScheme(CustomTabsIntent.COLOR_SCHEME_SYSTEM)
+            .addDefaultShareMenuItem()
+            .enableUrlBarHiding()
+            .setShowTitle(true)
+
+        val session = customTabsSession.value
+        if(session != null) customTabsBuilder.setSession(session)
+
+        customTabsBuilder.build().launchUrl(this, articleUrl.toUri())
+    }
+
+    private fun share() {
+        val article = viewModel.article.value ?: return
+        startActivity(Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "\"${article.title}\" - ${article.url}")
+            type = "text/plain"
+        })
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
-            R.id.action_open_in_browser -> {
-                val articleUrl = viewModel.article.value?.url?.toUri() ?: return false
-
-                val customTabsBuilder = CustomTabsIntent.Builder()
-                    .setToolbarColor(getColor(R.color.colorPrimary))
-                    .setSecondaryToolbarColor(getColor(R.color.colorSecondary))
-                    .setColorScheme(CustomTabsIntent.COLOR_SCHEME_SYSTEM)
-                    .addDefaultShareMenuItem()
-                    .enableUrlBarHiding()
-                    .setShowTitle(true)
-
-                val session = customTabsSession.value
-                if(session != null) customTabsBuilder.setSession(session)
-
-                customTabsBuilder.build().launchUrl(this, articleUrl)
-            }
-            R.id.action_share -> {
-                val article = viewModel.article.value ?: return false
-                startActivity(Intent().apply {
-                    action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_TEXT, "\"${article.title}\" - ${article.url}")
-                    type = "text/plain"
-                })
-            }
+            R.id.action_open_in_browser -> openInBrowser()
+            R.id.action_share -> share()
             else -> return super.onOptionsItemSelected(item)
         }
 

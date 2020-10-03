@@ -18,4 +18,5 @@
     <string name="no_internet">No internet connection available</string>
     <string name="ok">OK</string>
     <string name="na">N/A</string>
+    <string name="related">Related:\n%1$s</string>
 </resources>

@@ -18,4 +18,5 @@
     <string name="no_internet">Geen internetverbinding beschikbaar</string>
     <string name="ok">Oké</string>
     <string name="na">n.b.</string>
+    <string name="related">Gerelateerd:\n%1$s</string>
 </resources>
