@@ -112,6 +112,8 @@ class ArticleDetailsActivity : AppCompatActivity() {
 
                 val customTabsBuilder = CustomTabsIntent.Builder()
                     .setToolbarColor(getColor(R.color.colorPrimary))
+                    .setSecondaryToolbarColor(getColor(R.color.colorSecondary))
+                    .setColorScheme(CustomTabsIntent.COLOR_SCHEME_SYSTEM)
                     .addDefaultShareMenuItem()
                     .enableUrlBarHiding()
                     .setShowTitle(true)

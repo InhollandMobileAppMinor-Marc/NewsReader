@@ -13,6 +13,7 @@ import nl.bouwman.marc.news.domain.services.NewsReaderApi
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.concurrent.TimeUnit
 
@@ -42,6 +43,9 @@ class NewsReaderApiImpl : NewsReaderApi {
                 response
             } catch (error: UnknownHostException) {
                 // Network is offline
+                isOnline.postValue(false)
+                null
+            } catch (error: SocketTimeoutException) {
                 isOnline.postValue(false)
                 null
             }
