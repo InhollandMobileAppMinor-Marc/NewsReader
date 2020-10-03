@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import nl.bouwman.marc.news.ui.ArticleAdapter
+import nl.bouwman.marc.news.ui.R
 import nl.bouwman.marc.news.ui.databinding.ActivityAccountOverviewBinding
 import nl.bouwman.marc.news.ui.utils.defaultEncryptedPreferences
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -29,9 +30,6 @@ class AccountOverviewActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         adapter = ArticleAdapter(viewModel.articles, false)
-        adapter.onLastItemLoaded = {
-            viewModel.loadArticles()
-        }
 
         binding.content.recyclerView.setHasFixedSize(true)
         binding.content.recyclerView.adapter = adapter
@@ -44,7 +42,10 @@ class AccountOverviewActivity : AppCompatActivity() {
             viewModel.logout()
         }
 
-        binding.content.username.text = preferences.getString(AccountManagerImpl.SETTINGS_USERNAME, null) ?: "N/A"
+        binding.content.username.text = preferences.getString(
+            AccountManagerImpl.SETTINGS_USERNAME,
+            null
+        ) ?: getString(R.string.na)
 
         viewModel.isLoading.observe(this) {
             binding.content.swipeRefreshLayout.isRefreshing = it
@@ -60,10 +61,5 @@ class AccountOverviewActivity : AppCompatActivity() {
                 finish()
             }
         }
-    }
-
-    override fun onDestroy() {
-        adapter.onLastItemLoaded = null
-        super.onDestroy()
     }
 }

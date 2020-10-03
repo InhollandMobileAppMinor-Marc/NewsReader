@@ -28,7 +28,7 @@
                 android:id="@+id/actionBarImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:foreground="#45000000"
+                android:foreground="@color/actionBarImageForeground"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.7"

@@ -76,7 +76,9 @@ class ArticleDetailsActivity : AppCompatActivity() {
     }
 
     private fun loadArticle(article: Article) {
-        binding.toolbarLayout.title = article.title
+        binding.content.title.text = article.title
+
+        binding.content.categories.text = article.categories.joinToString { it.name }
 
         binding.content.summary.text =
             if (VERSION.SDK_INT >= VERSION_CODES.N)

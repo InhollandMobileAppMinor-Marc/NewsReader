@@ -17,4 +17,5 @@
     <string name="incorrect_credentials">Incorrect credentials</string>
     <string name="no_internet">No internet connection available</string>
     <string name="ok">OK</string>
+    <string name="na">N/A</string>
 </resources>

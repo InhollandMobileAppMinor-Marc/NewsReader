@@ -17,4 +17,5 @@
     <string name="incorrect_credentials">Inloggegevens incorrect</string>
     <string name="no_internet">Geen internetverbinding beschikbaar</string>
     <string name="ok">Oké</string>
+    <string name="na">n.b.</string>
 </resources>
