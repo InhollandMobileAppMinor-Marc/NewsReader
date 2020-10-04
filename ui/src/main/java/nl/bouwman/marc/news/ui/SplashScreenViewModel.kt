@@ -8,20 +8,13 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import nl.bouwman.marc.news.domain.services.AccountManager
 
-class SplashScreenViewModel(
-    private val accountManager: AccountManager
-) : ViewModel() {
+class SplashScreenViewModel : ViewModel() {
     private val mutableShouldShowSplashScreen = MutableLiveData(true)
 
     val shouldShowSplashScreen: LiveData<Boolean>
         get() = mutableShouldShowSplashScreen
 
     init {
-        viewModelScope.launch {
-            // Pre-fetch token for faster login
-            accountManager.fetchToken()
-        }
-
         viewModelScope.launch {
             delay(1000)
             mutableShouldShowSplashScreen.postValue(false)

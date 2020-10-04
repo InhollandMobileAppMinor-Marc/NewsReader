@@ -22,10 +22,6 @@ val newsReaderDiModule = module {
     }
 
     viewModel {
-        SplashScreenViewModel(get())
-    }
-
-    viewModel {
         ArticleOverviewViewModel(get(), get())
     }
 
