@@ -24,7 +24,7 @@ android {
         val release by getting {
             isMinifyEnabled = true
             isZipAlignEnabled = true
-            isShrinkResources = true
+            isShrinkResources = false
             isCrunchPngs = true
 
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
