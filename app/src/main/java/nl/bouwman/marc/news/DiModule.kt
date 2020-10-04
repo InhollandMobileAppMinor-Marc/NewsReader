@@ -5,7 +5,6 @@ import nl.bouwman.marc.news.domain.services.NewsReaderApi
 import nl.bouwman.marc.news.ui.articles.ArticleDetailsViewModel
 import nl.bouwman.marc.news.ui.articles.ArticleOverviewViewModel
 import nl.bouwman.marc.news.domain.services.AccountManager
-import nl.bouwman.marc.news.ui.SplashScreenViewModel
 import nl.bouwman.marc.news.ui.account.AccountManagerImpl
 import nl.bouwman.marc.news.ui.account.AccountOverviewViewModel
 import nl.bouwman.marc.news.ui.account.AuthenticationViewModel

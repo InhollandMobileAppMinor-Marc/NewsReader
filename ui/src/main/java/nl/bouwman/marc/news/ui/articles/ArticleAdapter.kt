@@ -1,10 +1,15 @@
 package nl.bouwman.marc.news.ui.articles
 
+import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat.startActivity
+import androidx.core.util.Pair
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -13,6 +18,7 @@ import nl.bouwman.marc.news.ui.R
 import nl.bouwman.marc.news.ui.databinding.ArticleListItemBinding
 
 class ArticleAdapter(
+    private val activity: AppCompatActivity,
     private val articles: LiveData<Set<Article>>,
     private val shouldDisplayLikes: Boolean = true
 ) : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() {
@@ -45,9 +51,13 @@ class ArticleAdapter(
         }
 
         holder.binding.root.setOnClickListener {
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                activity,
+                Pair(holder.binding.image, ArticleDetailsActivity.TRANSITION_IMAGE)
+            )
             val intent = Intent(it.context, ArticleDetailsActivity::class.java)
             intent.putExtra(ArticleDetailsActivity.EXTRA_ARTICLE, article)
-            startActivity(it.context, intent, null)
+            startActivity(it.context, intent, options.toBundle())
         }
 
         holder.binding.favorite.visibility = if(article.isLiked && shouldDisplayLikes) View.VISIBLE else View.INVISIBLE

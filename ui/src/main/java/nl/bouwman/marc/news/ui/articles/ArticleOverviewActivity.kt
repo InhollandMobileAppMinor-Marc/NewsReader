@@ -27,7 +27,7 @@ class ArticleOverviewActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-        adapter = ArticleAdapter(viewModel.articles)
+        adapter = ArticleAdapter(this, viewModel.articles)
         adapter.onLastItemLoaded = {
             viewModel.loadArticles()
         }

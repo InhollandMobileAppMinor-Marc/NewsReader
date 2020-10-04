@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
+import androidx.transition.Visibility
 import coil.load
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import nl.bouwman.marc.news.domain.models.Article
@@ -34,6 +35,8 @@ class ArticleDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityArticleDetailsBinding.inflate(layoutInflater)
+        binding.actionBarImage.transitionName = TRANSITION_IMAGE
+        binding.content.title.transitionName = TRANSITION_TITLE
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
@@ -106,6 +109,11 @@ class ArticleDetailsActivity : AppCompatActivity() {
         customTabsSession.value?.mayLaunchUrl(article.url.toUri(), null, null)
     }
 
+    override fun onBackPressed() {
+        binding.fab.visibility = View.GONE
+        super.onBackPressed()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_article_details, menu)
         return true
@@ -141,6 +149,7 @@ class ArticleDetailsActivity : AppCompatActivity() {
         when(item.itemId) {
             R.id.action_open_in_browser -> openInBrowser()
             R.id.action_share -> share()
+            android.R.id.home -> onBackPressed()
             else -> return super.onOptionsItemSelected(item)
         }
 
@@ -148,6 +157,8 @@ class ArticleDetailsActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_ARTICLE = "article"
+        const val EXTRA_ARTICLE = "EXTRA_ARTICLE"
+        const val TRANSITION_IMAGE = "TRANSITION_IMAGE"
+        const val TRANSITION_TITLE = "TRANSITION_TITLE"
     }
 }

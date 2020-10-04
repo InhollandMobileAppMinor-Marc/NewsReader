@@ -16,6 +16,9 @@
         <item name="colorAccent">@color/colorSecondary</item>
         <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
         <item name="colorSurface">@color/colorSurface</item>
+
+        <item name="android:windowSharedElementEnterTransition">@transition/article_details_transition</item>
+        <item name="android:windowSharedElementExitTransition">@transition/article_details_transition</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
