@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import nl.bouwman.marc.news.domain.services.DiApplication
 import nl.bouwman.marc.news.ui.articles.ArticleOverviewActivity
 
 class SplashScreenActivity : AppCompatActivity() {
@@ -13,8 +12,6 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
-
-        (application as? DiApplication)?.startDi()
 
         viewModel.shouldShowSplashScreen.observe(this) {
             if (!it) {

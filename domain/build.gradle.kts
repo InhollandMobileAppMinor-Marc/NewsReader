@@ -22,9 +22,9 @@ android {
 
     buildTypes {
         val release by getting {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             isZipAlignEnabled = true
-            isShrinkResources = false
+            isShrinkResources = true
             isCrunchPngs = true
 
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -35,6 +35,8 @@ android {
             isZipAlignEnabled = true
             isShrinkResources = false
             isCrunchPngs = true
+
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 

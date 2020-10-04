@@ -22,9 +22,9 @@ android {
 
     buildTypes {
         val release by getting {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             isZipAlignEnabled = true
-            isShrinkResources = false
+            isShrinkResources = true
             isCrunchPngs = true
 
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -35,6 +35,8 @@ android {
             isZipAlignEnabled = true
             isShrinkResources = false
             isCrunchPngs = true
+
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 
@@ -60,8 +62,6 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.7.0")
 
-    implementation("androidx.core:core-ktx:1.3.1")
-    implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
 
     testImplementation("junit:junit:${Versions.Libs.junit}")

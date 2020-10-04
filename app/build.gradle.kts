@@ -10,6 +10,7 @@ android {
 
     packagingOptions {
         exclude("kotlin/**")
+        exclude("okhttp3/**")
         exclude("**/*.kotlin_metadata")
         exclude("DebugProbesKt.bin")
         exclude("META-INF/*.kotlin_module")
@@ -31,9 +32,9 @@ android {
 
     buildTypes {
         val release by getting {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             isZipAlignEnabled = true
-            isShrinkResources = false
+            isShrinkResources = true
             isCrunchPngs = true
 
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -44,6 +45,8 @@ android {
             isZipAlignEnabled = true
             isShrinkResources = false
             isCrunchPngs = true
+
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 

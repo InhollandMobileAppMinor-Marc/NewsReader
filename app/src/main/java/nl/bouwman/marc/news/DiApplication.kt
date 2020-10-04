@@ -1,18 +1,19 @@
 package nl.bouwman.marc.news
 
 import android.app.Application
-import nl.bouwman.marc.news.domain.services.DiApplication
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
 
 @Suppress("unused")
-class DiApplicationImpl : Application(), DiApplication {
-    override fun startDi() {
+class DiApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+
         startKoin {
             androidLogger()
-            androidContext(this@DiApplicationImpl)
+            androidContext(this@DiApplication)
             modules(newsReaderDiModule)
         }
     }
